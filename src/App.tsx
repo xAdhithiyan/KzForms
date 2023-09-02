@@ -1,12 +1,20 @@
 // @ts-ignore
 import FormLayout from "./components/FormLayout.jsx" 
-import "./App.css"
 import "./normalize.css"
+import "./App.css"
 import { useState } from "react"
 
 function App(){
     /* the displaying content */
     const [values, setValues] = useState({
+        firstName: "",
+        regno: "",
+        email: "",
+        github: "",
+        linkden: "",
+    })
+
+    const [labelAnimation, setlabelAnimation] = useState({
         firstName: "",
         regno: "",
         email: "",
@@ -63,6 +71,14 @@ function App(){
         console.log(values)
     }
 
+    function changeLabel(e: any){
+        setlabelAnimation({
+            ...labelAnimation,
+            [e.target.name]: "labelAnimation    ",
+        })
+    } 
+
+
     return(
         <div className="mainForm" onSubmit={submittingForm}>
             <div className="image-side">
@@ -92,9 +108,9 @@ function App(){
            
             <form action="#" className="form">
                 {inputs.map( (i) => (
-                    <FormLayout key={i.id} {...values} {...i} value={values[i.name]} changeValues={changeValues}/>  
+                    <FormLayout key={i.id} {...i} value={values[i.name]} changeValues={changeValues}  labelAnimations ={labelAnimation[i.name]} changeLabel={changeLabel}/>  
                 ))}
-                <button>Submit</button>
+                <div className="btn"><button>Submit</button></div>
             </form>
         </div>
 
