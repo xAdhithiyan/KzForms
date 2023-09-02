@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 :root{
-    font-family: "Roboto" , sans-serif;
+    font-family: "Roboto" , sans-serif;  
+    ---bg-color: #080a30;
 }
 
 .inputs{
@@ -15,11 +17,64 @@
 }
 input{
     padding: 10px;
+    border:2px solid white;
+    border-bottom:2px solid black ;
 }
+
 .mainForm{
+    display: grid;
+    height: 100vh;
+    max-width: 100vw;
+    grid-template-columns: 1fr 700px;
+}
+.form{
+    border:4px solid black;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+}
+
+
+/* styling the image side */
+.image-side{
+    background-color: var(---bg-color);
+    color: white;
+    font-family: 'Happy Monkey', cursive;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto) 1fr 60px;
+}
+.logo-img{
+    border-radius: 50%;
+    height: 70px;
+    margin: 20px;
+}
+.mainForm h1{
+    margin: 20px;
+    font-size: 4rem;
+    text-align: center;
+} 
+h2{
+    margin: 20px;
+    text-align: center;
+    opacity: 0.5;
+}
+.bg-img{
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+svg{
+    height: 40px;
+    -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+    filter: invert(100%);
+}
+.svg-img{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
