@@ -4,8 +4,7 @@ import "../styling/normalize.css"
 import "../styling/App.css"
 import { useRef, useState } from "react"
 import schema from "../userValidation.js"
-/* import { BrowserRouter, Routes,Route } from "react-router-dom" // to route to a new page
-import InfoPage from "./InfoPage.js" */
+import {useNavigate} from 'react-router-dom' //used for navigating to new page
 
 function HomePage(){
     /* the displaying content */
@@ -17,6 +16,7 @@ function HomePage(){
         linkden: "",
     })
 
+    /* label animations */
     const [labelAnimation, setlabelAnimation] = useState({
         firstName: "",
         regno: "",
@@ -24,6 +24,7 @@ function HomePage(){
         github: "",
         linkden: "",
     })
+    /* form validation errors */
     const [errors, setErrors] = useState({
         firstName: "",
         regno: "",
@@ -31,7 +32,7 @@ function HomePage(){
         github: "",
         linkden: "",
     })
-
+    /* form validation input colors */
     const inputColor = useRef({
         firstName: "",
         regno: "",
@@ -74,6 +75,7 @@ function HomePage(){
         }
 
     ]
+    let navigate = useNavigate();
 
     //setValues must be an object
     //we are rewritting the changed property
@@ -103,7 +105,7 @@ function HomePage(){
                     ...inputColor.current , [i] : "valid",
                 }
             }
-            console.log("hey")
+            navigate("/info", {state:{...values}}) //sending the values 
     
         } catch (validationErrors: any) {
             // If validation fails, set the errors state with the error messages
@@ -133,8 +135,6 @@ function HomePage(){
             [e.target.name]: "labelAnimation",
         })
     } 
-
-
 
     return(
         <div className="mainForm" onSubmit={submittingForm}>
