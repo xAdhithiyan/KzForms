@@ -13,9 +13,9 @@ A simple sign up form build using React.js(vite) that uses yum library for form 
     ```git@github.com:xAdhithiyan/KzForms.git```
 - run the follwing commands \
     ``` cd KzForms ```\
-    ``` npm install ```\
+    ``` npm i ```\
     ``` npm i yup ```\
-    ``` npm install react-router-dom```\
+    ``` npm i react-router-dom```\
     ``` npm run dev ```
     
     This will launch the application in your default web browser, allowing you to   interact with the sign-up form.
