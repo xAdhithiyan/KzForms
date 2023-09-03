@@ -118,7 +118,7 @@ button{
     border-color: var(---bg-color);
     border-radius: 10px;
 }
-button:hover{
+.mainBtn:hover{
     height: 75px;
     width: 145px;
 }

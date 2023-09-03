@@ -1,6 +1,6 @@
 import "../styling/InfoPage.css"
 import { useLocation } from "react-router-dom" // to get the certain data from home page (here values object)
-
+import { useNavigate } from "react-router-dom";
 function InfoPage() {
     const values = useLocation().state;
     const githubParts = values.github.split("/")
@@ -18,13 +18,15 @@ function InfoPage() {
     }else{
         values.newLinkden = linkdenParts[linkdenParts.length - 1]
     }
+
+    let navigate = useNavigate();
     return(
         <>
             <div className="mainInfo">
                 <div className="card">
                     <div className="info-header">Hello {values.firstName}! <div>We've got your registration, and we'll be in touch shortly with more details and what's next.</div></div>
                     <div className="card-1">
-                        <div>First Name</div>
+                        <div>Name</div>
                         <div>{values.firstName}</div>
                     </div>
                     <div className="card-2">
@@ -43,7 +45,9 @@ function InfoPage() {
                         <div>Linkden Profile</div>
                         <div>{<a href={values.linkden} target="_blank">{values.newLinkden}</a>}</div>
                     </div>
-                    <div><button>fill another respone</button></div>                    
+                    <div className="card-6">
+                        <button className="info-btn" onClick={e => navigate("/home")}>Mistakes? Fill Another Form</button>
+                    </div>                    
                 
                 </div>
                 <img src="images/logo.jpg" alt="" className="info-logo-img logo-img"/>

@@ -167,7 +167,7 @@ function HomePage(){
                 {inputs.map( (i) => (
                     <FormLayout key={i.id} {...i} value={values[i.name]} changeValues={changeValues}  labelAnimations ={labelAnimation[i.name]} changeLabel={changeLabel} errors = {errors[i.name]} inputColor = {inputColor.current[i.name]}/>  
                 ))}
-                <div className="btn"><button>Submit</button></div>
+                <div className="btn"><button className="mainBtn">Submit</button></div>
             </form>
         </div>
 
