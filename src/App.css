@@ -3,6 +3,8 @@
 :root{
     font-family: "Roboto" , sans-serif;  
     ---bg-color: #080a30;
+    --valid-color: rgb(44, 238, 144);
+    --invalid-color: rgb(255, 127, 80);
 }
 
 .inputs{
@@ -119,4 +121,18 @@ button{
 button:hover{
     height: 75px;
     width: 145px;
+}
+
+.errors{
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--invalid-color);
+}
+
+.invalid{
+    border-bottom: 2px solid var(--invalid-color);
+}
+
+.valid{
+    border-bottom: 2px solid var(--valid-color);
 }

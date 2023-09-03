@@ -2,7 +2,9 @@
 import FormLayout from "./components/FormLayout.jsx" 
 import "./normalize.css"
 import "./App.css"
-import { useState } from "react"
+import { useRef, useState } from "react"
+import schema from "./userValidation.js"
+
 
 function App(){
     /* the displaying content */
@@ -15,6 +17,21 @@ function App(){
     })
 
     const [labelAnimation, setlabelAnimation] = useState({
+        firstName: "",
+        regno: "",
+        email: "",
+        github: "",
+        linkden: "",
+    })
+    const [errors, setErrors] = useState({
+        firstName: "",
+        regno: "",
+        email: "",
+        github: "",
+        linkden: "",
+    })
+
+    const inputColor = useRef({
         firstName: "",
         regno: "",
         email: "",
@@ -39,7 +56,7 @@ function App(){
         {
             id: 3,
             name:"email",
-            type:"email",
+            type:"text",
             label:"Email",
         },
         {
@@ -66,15 +83,53 @@ function App(){
         })
     } 
 
-    function submittingForm(e: any){
+    /* to update the input color */
+    async function submittingForm(e: any){
         e.preventDefault();
-        console.log(values)
-    }
+        try {
+            await schema.validate(values, { abortEarly: false });
 
+            setErrors({
+                firstName: "",
+                regno: "",
+                email: "",
+                github: "",
+                linkden: "",
+            });
+
+            for(let i in values){
+                inputColor.current = {
+                    ...inputColor.current , [i] : "valid",
+                }
+            }
+            console.log("hey")
+    
+        } catch (validationErrors: any) {
+            // If validation fails, set the errors state with the error messages
+            const errorsObject = {};
+            validationErrors.inner.forEach(error => {
+                errorsObject[error.path] = error.message;
+            });
+            setErrors(errorsObject);
+
+            for(let i in values){
+                inputColor.current = {
+                    ...inputColor.current , [i] : "valid",
+                }
+            }
+            for(let i in errorsObject){
+                inputColor.current = {
+                    ...inputColor.current , [i] : "invalid",
+                }
+            } 
+        }  
+    }   
+
+    /* label animaton */
     function changeLabel(e: any){
         setlabelAnimation({
             ...labelAnimation,
-            [e.target.name]: "labelAnimation    ",
+            [e.target.name]: "labelAnimation",
         })
     } 
 
@@ -108,7 +163,7 @@ function App(){
            
             <form action="#" className="form">
                 {inputs.map( (i) => (
-                    <FormLayout key={i.id} {...i} value={values[i.name]} changeValues={changeValues}  labelAnimations ={labelAnimation[i.name]} changeLabel={changeLabel}/>  
+                    <FormLayout key={i.id} {...i} value={values[i.name]} changeValues={changeValues}  labelAnimations ={labelAnimation[i.name]} changeLabel={changeLabel} errors = {errors[i.name]} inputColor = {inputColor.current[i.name]}/>  
                 ))}
                 <div className="btn"><button>Submit</button></div>
             </form>
