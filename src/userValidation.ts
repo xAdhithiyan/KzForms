@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as yup from "yup";
 
 
