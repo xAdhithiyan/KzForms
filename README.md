@@ -1,7 +1,7 @@
 # Sign up form
 
 ## Links
-- [Vist the website]()
+- [Vist the website](https://zippy-fenglisu-821f86.netlify.app/)
 ## About
 A simple sign up form build using React.js(vite) that uses yum library for form validation. 
 
