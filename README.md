@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+# Sign up form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Links
+- [Vist the website]()
+## About
+A simple sign up form build using React.js(vite) that uses yum library for form validation. 
 
-Currently, two official plugins are available:
+## Prerequisites
+- node.js must npm be installed on the local machine
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installations
+- clone this repository  
+    ```git@github.com:xAdhithiyan/KzForms.git```
+- run the follwing commands \
+    ``` cd KzForms ```\
+    ``` npm install ```\
+    ``` npm i yup ```\
+    ``` npm install react-router-dom```\
+    ``` npm run dev ```
+    
+    This will launch the application in your default web browser, allowing you to   interact with the sign-up form.
 
-## Expanding the ESLint configuration
+## ScreenShots
+![Screenshot from 2023-09-03 23-38-26](https://github.com/xAdhithiyan/KzForms/assets/113228161/f0e23bb8-7e31-4fa7-8d8b-71009b5b3476)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![Screenshot from 2023-09-03 23-39-22](https://github.com/xAdhithiyan/KzForms/assets/113228161/1cdb03d3-9a01-420a-af02-87b2a1651584)
