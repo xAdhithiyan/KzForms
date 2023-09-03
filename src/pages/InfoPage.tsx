@@ -46,7 +46,7 @@ function InfoPage() {
                         <div>{<a href={values.linkden} target="_blank">{values.newLinkden}</a>}</div>
                     </div>
                     <div className="card-6">
-                        <button className="info-btn" onClick={e => navigate("/home")}>Mistakes? Fill Another Form</button>
+                        <button className="info-btn" onClick={() => navigate("/home")}>Mistakes? Fill Another Form</button>
                     </div>                    
                 
                 </div>

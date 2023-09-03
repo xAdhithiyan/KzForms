@@ -1,3 +1,4 @@
+// @ts-nocheck
 // @ts-ignore
 import FormLayout from "../components/FormLayout.jsx" 
 import "../styling/normalize.css"
